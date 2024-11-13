@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ .Name }}</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        div{
+            /* display: block; */
+            width: 100%;
+        }
+        body, html {
+            min-height: 100vh;
+            font-family:Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            /* align-items: center; */
+            background-color: #0a0505;
+            color: #ebe0e0;
+        }
+        p {
+            font-size:large;
+            color: #a4a2b1;
+            margin-bottom: 20px;
+        }
+        h1 {
+            font-size: 3em;
+            color: #FFcc00;
+            text-align: center;
+            /* border-radius: 8px; */
+            text-decoration: none;
+            /* background-color: #bbb9b9; */
+        }
+    
+        h2{
+            font-size: 2.5em;
+            color: #FFcc00;
+            margin-bottom: 20px;
+            text-align: center;
+            border-radius: 8px;
+        }
+        img {
+            display: block;
+            margin: 0 auto 20px auto;
+            max-width: 400px;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(208, 235, 59, 0.5);
+        }
+        img:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(171, 224, 222, 0.5);
+        }
+        ul {
+            list-style-type:disc;
+            padding-left: 20px;
+            font-size: 1em;
+        }
+        li {
+            margin: 10px 0;
+        }
+        a {
+            color: #2e5eb7;
+            /* text-decoration: none; */
+        }
+        .buttons {
+            margin-top: 20px;
+            text-align: center;
+
+        }
+    
+        .buttons a {
+            text-decoration: none;
+            padding: 10px 20px;
+            background-color: #ffcc00;
+            color: black;
+            border-radius: 5px;
+            margin-right: 10px;
+            transition: background-color 0.3s ease;
+        }
+    
+        .buttons a:hover {
+            background-color: #a4a2b1;
+        }
+        .back{
+            text-decoration: none;
+            padding: 10px 20px;
+            background-color: #ffcc00;
+            color: black;
+            border-radius: 5px;
+            margin-right: 10px;
+            transition: background-color 0.3s ease;
+        }
+    
+        .back:hover {
+            background-color: #a4a2b1;
+        }
+        @media(max-width: 768px){
+            .buttons a {
+                display: block;
+                margin-bottom: 5px;
+            }
+            li {
+                max-width: 100%;
+                padding: 15px;
+            }
+    
+            li img {
+                width: 100%;
+            }
+        }
+        .container{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-bottom: 70px;
+        }
+        footer {
+            text-align: center;
+            width: 100%;
+            color: bisque;
+            position: fixed;
+            bottom: 0%;
+            background-color: #383737;
+            padding: 15px;
+            box-sizing: border-box;
+            margin-top: 10px;
+            max-height: 70px;
+        }
+        footer a:hover{
+            background-color: rgb(69, 141, 141);
+        }
+        .link {
+            font-weight: bold;
+            color: #bea908;
+            font-size: large;
+        }
+        .foot{
+            margin: 0;
+        }
+        .header{
+            position: sticky;
+            top: 0%;
+            color: #ffcc00;
+            background-color: #383737;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        {{template "Header"}}
+    </div>
+    <div class="container" >
+        <h2>{{ .Name }}</h2>
+        <img src="{{ .Image }}" alt="{{ .Name }}">
+        <p style="font-size: x-large;">Creation Date: {{ .CreationDate }}</p>
+        <p style="font-size: x-large;">First Album: {{ .FirstAlbum }}</p>
+        <p style="font-size: x-large;">Members:</p>
+        <ul>
+            {{ range .Members }}
+            <li>{{ . }}</li>
+            {{ end }}
+        </ul>
+        <div class="buttons">
+            <a href="/location/{{.Id}}">View Locations</a>
+            <a href="/date/{{.Id}}">View Concert Dates</a>
+            <a href="/relation/{{.Id}}">View Relations</a>
+        </div>
+        <div style="text-align: center; margin-top: 30px;">
+            <a class="back" href="/">Back to Artists</a>
+        </div>
+    </div>
+    {{template "Footer"}}
+</body>
+</html>

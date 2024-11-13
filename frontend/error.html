@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+         body, html {
+            width: 100vw;
+            height: 100vh;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: #070404;
+            color: #333;
+        }
+        a h1{
+            margin: 0; /* Remove extra space around the h1 */
+            padding: 0; /* Remove any additional padding */
+            line-height: 1;  
+        }
+        hr{
+            width: 100vw;
+        }
+        h1 {
+            font-size: 3em;
+            color: #FFcc00;
+            /* margin-bottom: 20px; */
+            text-align: center;
+            /* border-radius: 8px; */
+            text-decoration: none;
+            width: 100%;
+        }
+        footer {
+            background-color: #383737;
+            color: #f3f3f3;
+            /* padding: 15px; */
+            text-align: center;
+            position: fixed;
+            bottom: 0%;
+            width: 100%;
+            /* margin-top: 10px; */
+            max-height: 70px;
+        }
+        main{
+            color: #ffcc00;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 0px;
+            /* padding-bottom: 70px; */
+        }
+        .er{
+            margin-top: 0px;
+            font-size: 3em;
+            /* position: fixed;
+            top: 0%; */
+        }
+        .back{
+            text-decoration: none;
+            padding: 10px 20px;
+            background-color: #ffcc00;
+            color: black;
+            border-radius: 5px;
+            margin-right: 10px;
+            transition: background-color 0.3s ease;
+        }
+    
+        .back:hover {
+            background-color: #a4a2b1;
+        }
+        .header{
+            position: fixed;
+            top: 0%;
+            /* margin-bottom: 0px; */
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        {{template "Header"}}
+        <br>
+        <br>
+        <main>
+            <p class="er">{{.}}</p> 
+             <a href="/" class="back">Back to Groupie Trackers</a>
+         </main>   
+    </div>
+    {{template "Footer"}}
+</body>
+</html>

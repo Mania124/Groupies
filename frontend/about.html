@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Groupie Trackers</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: #0e0a0a;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        h1 {
+            /* background-color: #2a0337; */
+            /* padding: 20px; */
+            text-align: center;
+            color: #ffcc00;
+            background-color: #383737;
+            position: sticky;
+            top: 0%;
+            margin: 0; /* Remove extra space around the h1 */
+            padding: 0; /* Remove any additional padding */
+            line-height: 1; 
+            background-color: #383737; 
+        }
+        h1 {
+            font-size: 3em;
+            /* margin-bottom: 10px; */
+            text-align: center;
+            text-decoration: none;
+            color: #fc0;
+        }
+        /* a h1{
+            margin: 0;
+            padding: 0;
+        } */
+        main {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            padding-bottom: 70px;
+            /* background-color: #1f1b1b; */
+        }
+        .back{
+            text-decoration: none;
+            padding: 10px 20px;
+            background-color: #ffcc00;
+            color: black;
+            border-radius: 5px;
+            margin-right: 10px;
+            transition: background-color 0.3s ease;
+        }
+        a{
+            background-color: #383737;
+            padding-bottom: 5px;
+        }
+        .back:hover {
+            background-color: #a4a2b1;
+        }
+        section {
+            max-width: 900px;
+            margin: 20px 0;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+
+        section h2 {
+            color: #2a0337;
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+
+        section p {
+            font-size: 1.2em;
+            color: #555;
+            line-height: 1.8;
+        }
+
+        footer {
+            text-align: center;
+            width: 100%;
+            color: bisque;
+            position: fixed;
+            bottom: 0%;
+            background-color: #383737;
+            padding: 15px;
+            box-sizing: border-box;
+            margin-top: 10px;
+            max-height: 70px;
+        }
+
+        @media (max-width: 768px) {
+            section {
+                padding: 15px;
+            }
+
+            section h2 {
+                font-size: 1.8em;
+            }
+
+            section p {
+                font-size: 1.1em;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- <div class="header"> -->
+        {{template "Header"}}
+    <!-- </div> -->
+    <main>
+        <section>
+            <h2>Meet Cliff Doyle</h2>
+            <p>Groupie Trackers is managed by Cliff Doyle, a seasoned professional with over 10 years of experience working at Tesla, where he contributed to cutting-edge innovations. Before his time at Tesla, Cliff was a developer at EA Sports, where he helped build some of the most popular games in the world. His passion for technology and music led him to create Groupie Trackers to bring artists closer to their fans.</p>
+        </section>
+
+        <section>
+            <h2>Shikuku's Contribution</h2>
+            <p>Helping Cliff maintain and grow the platform is Shikuku, an industry veteran with over 30 years of experience in Linux open-source projects. Shikuku is also a co-founder of a successful tech company based in Ohio, and his expertise in system architecture and open-source technologies is invaluable in keeping Groupie Trackers running smoothly.</p>
+        </section>
+        <a href="/" class="back" >Back to <strong>Groupie Tracker</strong></a>
+    </main>
+    <footer>
+        <p>&copy; 2024 Groupie Trackers</p>
+    </footer>
+</body>
+</html>

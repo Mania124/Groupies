@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Artists</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        /* Basic Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body Styling */
+        body, html {
+            font-family: 'Arial', sans-serif;
+            background-color: #1e1e1e;
+            color: #f3f3f3;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 30vh;
+        }
+        .spac{
+            /* height: 60%; */
+            /* background-color: #bbb9b9; */
+            position: sticky;
+            top: 0%;
+            color: #ffcc00;
+            background-color: #383737;
+        }
+        .spac h2{
+            color: #1e1e1e;
+        }
+
+        /* Navigation Bar */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #363437;
+            padding: 10px 20px;
+            position: sticky;
+            top: 10;
+        }
+
+nav .logo img {
+    width: 50px; /* Adjust the size of the logo */
+    height: auto; /* Maintain the aspect ratio */
+}
+
+        nav .logo img {
+            width: 40px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+        }
+
+        nav ul li {
+            margin-left: 20px;
+        }
+
+        nav ul li a {
+            cursor: pointer;
+            text-decoration: none;
+            color: #f3f3f3;
+            font-weight: bold;
+            border-radius: 5px;
+        }
+
+        nav ul li a:hover {
+            background-color: #8c6b5e;
+        }
+
+        /* Main Content */
+        main {
+            flex-grow: 1;
+            padding: 20px;
+            margin-bottom: 10px;
+            max-height: 80%;
+            padding-bottom: 70px;
+        }
+
+        h1 {
+            font-size: 3em;
+            text-align: center;
+            /* margin-bottom: 30px; */
+            color: #ffcc00;
+            text-decoration: none;
+        }
+        .marquee {
+    position: relative;
+    width: 100%; /* Full width of the viewport */
+    overflow: hidden; /* Hides anything outside the container */
+}
+
+.marquee p {
+    position: absolute;
+    white-space: nowrap; /* Prevents text wrapping */
+    animation: marquee 10s linear infinite; /* Animation duration and repeat */
+}
+
+@keyframes marquee {
+    0% {
+        transform: translateX(100%); /* Start from right outside */
+    }
+    100% {
+        transform: translateX(-100%); /* End at left outside */
+    }
+}
+
+        /* Grid Layout */
+        ul {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            list-style: none;
+            padding: 0;
+            margin: 0 auto;
+            max-width: 1200px;
+        }
+
+        /* Artist Card */
+        li {
+            background-color: #2d2d2d;
+            border-radius: 10px;
+            padding: 15px;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            width: 100%;
+            /* height: 100vh; */
+        }
+
+        li:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        li h2 {
+            margin-bottom: 10px;
+            font-size: 1.5em;
+            color: #ffcc00;
+        }
+
+        li a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        li img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+
+        li p {
+            margin-bottom: 10px;
+            font-size: 1em;
+        }
+
+        li ul {
+            list-style: none;
+            padding: 0;
+            margin: 10px 0;
+        }
+
+        li ul li {
+            margin-bottom: 5px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #383737;
+            color: #f3f3f3;
+            padding: 15px;
+            text-align: center;
+            position: fixed;
+            bottom: 0%;
+            width: 100%;
+            margin-top: 10px;
+            max-height: 70px;
+        }
+        .link {
+            font-weight: bold;
+            color: #bea908;
+            font-size: large;
+        }
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            nav ul li {
+                margin-left: 10px;
+            }
+
+            nav ul li a {
+                padding: 6px 12px;
+            }
+
+            h1 {
+                font-size: 2em;
+            }
+
+            li h2 {
+                font-size: 1.3em;
+            }
+
+            li img {
+                height: 120px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="spac">
+        {{template "Header"}}
+    </div>
+    <main>
+        <ul>
+            {{range .}}
+            <li>
+                <a href="/artist/{{.Id}}">
+                    <img src="{{.Image}}" alt="{{.Name}}">
+                    <h2>{{.Name}}</h2>
+                </a>
+                <p><strong>Creation Date:</strong> {{.CreationDate}}</p>
+                <p><strong>First Album:</strong> {{.FirstAlbum}}</p>
+            </li>
+            {{end}}
+        </ul>
+    </main>
+    {{template "Footer"}}
+</body>
+</html>

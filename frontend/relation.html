@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relations</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body, html {
+            height: 100%;
+            font-family: Arial, sans-serif;
+            /* display: flex; */
+            /* flex-wrap: wrap; */
+            justify-content: center;
+            align-items: center;
+            background-color: #070404;
+            color: #333;
+        }
+        h1 {
+            font-size: 3em;
+            /* display: inline; */
+            color: #FFcc00;
+            /* margin-bottom: 20px; */
+            text-align: center;
+            border-radius: 8px;
+            text-decoration: none;
+            width: 100%;
+        }
+        h2{
+            font-size: 2.5em;
+            /* display: inline; */
+            color: #FFcc00;
+            /* margin-bottom: 20px; */
+            text-align: center;
+            border-radius: 8px;
+            text-decoration: none;
+            width: 100%; 
+        }
+        .backer{
+            text-decoration: none;
+            padding: 10px 20px;
+            background-color: #ffcc00;
+            color: black;
+            border-radius: 5px;
+            margin-right: 10px;
+            transition: background-color 0.3s ease;
+        }
+    
+        .backer:hover {
+            background-color: #a4a2b1;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+            font-size: 25px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        li {
+            margin: 10px 0;
+        }
+
+        li {
+            margin: 10px 0;
+            color: bisque;
+        }
+        footer {
+            text-align: center;
+            width: 100%;
+            color: bisque;
+            position: fixed;
+            bottom: 0%;
+            background-color: #383737;
+            margin-top: 10px;
+            padding: 15px;
+            box-sizing: border-box;
+            max-height: 70px;
+        }
+        div{
+            width: 100%;
+        }
+        .container{
+            padding-bottom: 70px;
+        }
+        .header{
+            /* background-color: #bbb9b9; */
+            width: 100%;
+            box-sizing: border-box;
+            position: sticky;
+            top: 0%;
+            color: #ffcc00;
+            background-color: #383737;
+        }
+        .out{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .back{
+            font-weight: bold;
+            color: #bea908;
+            font-size: large;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        {{template "Header"}}
+    </div>
+    
+    <div class="container">
+        <h2>Relation(s)</h2>
+        <ul class="out">
+            {{ range $date, $locations := .DatesLocations }}
+            <li>Location: {{ $date }}
+                <ul>
+                    {{ range $locations }}
+                  <ol>Date: {{ . }}</ol>
+                    {{ end }}
+                </ul>
+            </li>
+            {{ end }}
+            <a href="/artist/{{.ID}}" class="backer">Back to  the Artist</a>
+        </ul>
+    </div>
+    <footer>
+        <p><a href="/about" class="back">About US</a></p>
+        <p>&copy; 2024 Groupie Trackers</p>
+    </footer>
+</body>
+</html>
